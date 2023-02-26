@@ -6,9 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D body;
+    private Animator anim;
     private void Awake()
     {   //Finds the Rigidbody component within Object
         body = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = Vector3.one; 
         }
-        else if (horizontalInput < 0.01f)
+        else if (horizontalInput < 0.0f)
         { 
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -35,10 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
        
        
-
+        //Jump Function
         if (Input.GetKeyDown(KeyCode.Space))
         {
             body.velocity = new Vector2(body.velocity.x, speed);
         }
+
+        //Set Animator Parameters
+        anim.SetBool("Run", horizontalInput != 0);
     }
 }
