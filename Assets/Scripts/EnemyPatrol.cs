@@ -22,7 +22,7 @@ public class EnemyPatrol : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         //Creating a downwards ray which starts at the position of groundDetection with Raylength
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2f);
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 1f);
 
         //If Ray is colliding with ground Enemy will move right, else will move left
         if(groundInfo.collider == false)

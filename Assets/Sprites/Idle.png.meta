@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81996a80d3511a648a8909f0e2126635
+guid: bb2bb4f1e5e860249b193e236ef9e175
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Samurai girl character animation idle v3_0
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d825ad8a3846774382b8a3f98dc9695
-      internalID: -693606923
+      spriteID: bdc97ff258ab00f49970eb3480dea033
+      internalID: -752403001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai girl character animation idle v3_1
+      name: Idle_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b651749f8622d8e4eb8abf8fe4d8ce5e
-      internalID: 1385345391
+      spriteID: 9f66cafed6ab5bb4f81074cd2bc333bf
+      internalID: 1952272585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai girl character animation idle v3_2
+      name: Idle_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aee53ea61e588084fb090ed7d59014f1
-      internalID: 1332907877
+      spriteID: 222aefe4161a60f49bf8a1bc8090eec4
+      internalID: 48608998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Samurai girl character animation idle v3_3
+      name: Idle_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35c5790ddd86fcc4e9a9d6d9e2549006
-      internalID: 1358980578
+      spriteID: 36daf5df040bcc447bba241c3c4fc5c8
+      internalID: -1477328385
       vertices: []
       indices: 
       edges: []
@@ -223,10 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Samurai girl character animation idle v3_3: 1358980578
-      Samurai girl character animation idle v3_0: -693606923
-      Samurai girl character animation idle v3_2: 1332907877
-      Samurai girl character animation idle v3_1: 1385345391
+      Idle_1: 1952272585
+      Idle_3: -1477328385
+      Idle_0: -752403001
+      Idle_2: 48608998
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
