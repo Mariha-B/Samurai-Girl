@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D body;
     private Animator anim;
+    public bool grounded;
     private void Awake()
     {   //Finds the Rigidbody component within Object
         body = GetComponent<Rigidbody2D>();
@@ -38,12 +39,22 @@ public class PlayerMovement : MonoBehaviour
        
        
         //Jump Function
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) &&  grounded)
         {
             body.velocity = new Vector2(body.velocity.x, speed);
+            grounded = false;
         }
 
         //Set Animator Parameters
         anim.SetBool("Run", horizontalInput != 0);
+        anim.SetBool("Grounded", grounded);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            grounded = true;
+        }
     }
 }

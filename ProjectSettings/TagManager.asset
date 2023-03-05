@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Collectable
+  - Ground
+  - Enemy
+  - EnemyBody
   layers:
   - Default
   - TransparentFX
@@ -47,9 +51,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3048045129
     locked: 0
-  - name: Player
-    uniqueID: 3573277105
-    locked: 0
   - name: Ground
     uniqueID: 3604967409
+    locked: 0
+  - name: Player
+    uniqueID: 3573277105
     locked: 0
