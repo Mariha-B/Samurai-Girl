@@ -14,13 +14,13 @@ public class SpriteFlash : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Material originalMaterial;
     private Coroutine flashRoutine;
-   
+    private bool hurt;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-
+        
         originalMaterial = spriteRenderer.material;
     }
 

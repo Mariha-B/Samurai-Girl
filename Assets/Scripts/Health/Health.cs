@@ -20,7 +20,8 @@ public class Health : MonoBehaviour
         if(currentHealth > 0)
         {
             //Player Hurt
-            animator.SetTrigger("Hurt");
+            //animator.SetTrigger("Hurt");
+            GetComponent<SpriteFlash>().Flash();
         }
         else 
         { 

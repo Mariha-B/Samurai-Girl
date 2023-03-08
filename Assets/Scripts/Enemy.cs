@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-    void Die()
+     public void Die()
     {
         //Die Animation
         
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isDead", true);
         //Destroy Enemy
         
+            
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 

@@ -8,8 +8,11 @@ public class chaseEnemy : MonoBehaviour
     public float chaseDistance;
     public Animator animator;
     public bool chasing;
+    public bool isGrounded;
+    public Transform groundDetection;
     public float dist;
-    
+
+
 
     public GameObject Player;
     public BoxCollider2D boxCollider;
@@ -27,41 +30,46 @@ public class chaseEnemy : MonoBehaviour
         startingPosition = transform.position;
         //playerTransform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
+        
     }
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 1f);
+
+
+        if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && groundInfo.collider == true)
         { //Chase
-            
+
             if (transform.position.x > playerTransform.position.x)
             {
                 animator.SetBool("isChase", true);
-                
+
                 rb2d.velocity = new Vector2(-speed, 0);
                 transform.localScale = new Vector2(-1, 1);
             }
             else if (transform.position.x < playerTransform.position.x)
             {
                 //animator.SetBool("isChase", true);
-                rb2d.velocity  = new Vector2(speed, 0);
+                rb2d.velocity = new Vector2(speed, 0);
                 transform.localScale = new Vector2(1, 1);
             }
+            
+            
         }
 
         else
         { //Stop Chasing
-            animator.SetBool("isChase", false);
-            rb2d.velocity =  new Vector2(0,0);
-            
+            StopChase();
+
         }
+
 
         Attack();
     }
@@ -71,23 +79,27 @@ public class chaseEnemy : MonoBehaviour
         if (Time.time >= nextAttack)
 
         {
-           if (Vector2.Distance(transform.position, playerTransform.position) < dist)
-             {
+            if (Vector2.Distance(transform.position, playerTransform.position) < dist)
+            {
 
-            animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
 
-            Player.GetComponent<Health>().TakeDamage(1);
-            nextAttack = Time.time + 2f / attackRate;
-             }
-               
+                Player.GetComponent<Health>().TakeDamage(1);
+                nextAttack = Time.time + 2f / attackRate;
+            }
+
         }
-        
-        
+
+
 
     }
 
+    public void StopChase()
+    {
+        animator.SetBool("isChase", false);
+        rb2d.velocity = new Vector2(0, 0);
 
-
+    }
 
 
     private void OnDrawGizmos()
@@ -100,4 +112,5 @@ public class chaseEnemy : MonoBehaviour
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * dist * transform.localScale.x * colliderDistance,
             new Vector3(boxCollider.bounds.size.x * dist, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
+
 }
