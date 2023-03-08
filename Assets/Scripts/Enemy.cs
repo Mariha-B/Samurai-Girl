@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         //Die Animation
-        Debug.Log("Enemy Died");
+        
 
         animator.SetBool("isDead", true);
         //Destroy Enemy
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         this.enabled = false;
 
 
-        Destroy(gameObject, 1.3f);
+        Destroy(gameObject, 1.6f);
 
     }
 
