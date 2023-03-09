@@ -81,11 +81,13 @@ public class chaseEnemy : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, playerTransform.position) < dist)
             {
-
+                //coroutine to delay attack for 1 second
+                nextAttack = Time.time + 6f / attackRate;
+                
                 animator.SetTrigger("Attack");
 
                 Player.GetComponent<Health>().TakeDamage(1);
-                nextAttack = Time.time + 2f / attackRate;
+                
             }
 
         }
