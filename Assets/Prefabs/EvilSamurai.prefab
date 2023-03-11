@@ -204,10 +204,10 @@ MonoBehaviour:
   isGrounded: 0
   groundDetection: {fileID: 589620901409466665}
   dist: 0.5
-  Player: {fileID: 0}
+  Player: {fileID: 1902618524361685659, guid: 43d25fc002ff1424bb184e586bc784a7, type: 3}
   boxCollider: {fileID: 589620901217764875}
   colliderDistance: 0
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1902618524361685655, guid: 43d25fc002ff1424bb184e586bc784a7, type: 3}
   attackRate: 2
 --- !u!1 &589620901409466670
 GameObject:
