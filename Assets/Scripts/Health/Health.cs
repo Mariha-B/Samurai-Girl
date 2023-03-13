@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public GameObject GameOver;
 
     [SerializeField] private float startingHealth;
     public float currentHealth {get; private set;}
@@ -24,8 +25,10 @@ public class Health : MonoBehaviour
             GetComponent<SpriteFlash>().Flash();
         }
         else 
-        { 
-        //Player Dead
+        {
+            //Player Dead
+            GameOver.SetActive(true);
+            Time.timeScale = 0f;
 
         }
     }

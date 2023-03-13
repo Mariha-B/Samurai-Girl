@@ -10,6 +10,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private float range;
     public Animator animator;
     private EnemyPatrol enemyPatrol;
+    [SerializeField] private AudioSource shootSound;
 
     [Header("Collider Parameters")]
     [SerializeField] private float colliderDistance;
@@ -53,7 +54,7 @@ public class EnemyShooting : MonoBehaviour
 
     void shoot()
     {
-
+        shootSound.Play();
         Instantiate(fireball, fireballPos.position, Quaternion.identity);
     }
 

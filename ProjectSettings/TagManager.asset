@@ -8,6 +8,11 @@ TagManager:
   - Ground
   - Enemy
   - EnemyBody
+  - FinishLevel
+  - Coin
+  - Gem
+  - Undefined
+  - Valuable
   layers:
   - Default
   - TransparentFX

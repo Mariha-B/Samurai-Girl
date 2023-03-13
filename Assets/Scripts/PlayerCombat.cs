@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers;
     public Animator animator;
     public int attackDamage = 40;
+    [SerializeField] private AudioSource attackSound;
 
     public float attackRate = 2f;
     float nextAttack = 0f;
@@ -25,8 +26,10 @@ public class PlayerCombat : MonoBehaviour
         
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
+            {   
+                attackSound.Play();
                 Attack();
+                
                 nextAttack = Time.time + 1f / attackRate;
             }
 

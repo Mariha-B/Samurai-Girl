@@ -11,7 +11,7 @@ public class chaseEnemy : MonoBehaviour
     public bool isGrounded;
     public Transform groundDetection;
     public float dist;
-
+    [SerializeField] private AudioSource attackSound;
 
 
     public GameObject Player;
@@ -83,7 +83,7 @@ public class chaseEnemy : MonoBehaviour
             {
                 //coroutine to delay attack for 1 second
                 nextAttack = Time.time + 6f / attackRate;
-                
+                attackSound.Play();
                 animator.SetTrigger("Attack");
 
                 Player.GetComponent<Health>().TakeDamage(1);
