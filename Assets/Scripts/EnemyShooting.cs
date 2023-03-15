@@ -36,7 +36,7 @@ public class EnemyShooting : MonoBehaviour
     void Update()
     {
        
-        if(PlayerInSight() == true)
+        if(PlayerInSight() == true && player.GetComponent<Health>().currentHealth > 0)
         {
            
             timer += Time.deltaTime;

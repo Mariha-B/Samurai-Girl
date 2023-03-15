@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     public float currentHealth {get; private set;}
     private Animator animator;
+    [SerializeField] AudioSource gameOversound;
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -21,14 +22,15 @@ public class Health : MonoBehaviour
         if(currentHealth > 0)
         {
             //Player Hurt
-            //animator.SetTrigger("Hurt");
+            
             GetComponent<SpriteFlash>().Flash();
         }
         else 
         {
             //Player Dead
-            GameOver.SetActive(true);
-            Time.timeScale = 0f;
+            animator.SetTrigger("Die");
+            StartCoroutine(Delay(1.3f));
+             gameOversound.Play();
 
         }
     }
@@ -37,4 +39,20 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
 
     }
+
+    private IEnumerator Delay(float dur)
+    {
+        //GameOver.SetActive(false);
+        GetComponent<PlayerMovement>().speed = 0;
+        GetComponent<PlayerMovement>().enabled = false;
+        yield return new WaitForSeconds(dur);
+        gameObject.SetActive(false);
+        GameOver.SetActive(true);
+       
+        Time.timeScale = 0f;
+
+
+    }
+
+
 }

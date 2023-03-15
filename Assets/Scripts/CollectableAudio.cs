@@ -8,6 +8,7 @@ public class CollectableAudio : MonoBehaviour
     [SerializeField] private AudioSource gemSound;
     [SerializeField] private AudioSource valueSound;
     [SerializeField] private AudioSource healthSound;
+    
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,10 +32,16 @@ public class CollectableAudio : MonoBehaviour
 
         }
 
-        if (collision.tag == "Collectable")
+        if (collision.tag == "Collectable" && collision.isActiveAndEnabled == false)
         {
             healthSound.Play();
 
         }
+        
+       // if (collision.tag == "FinishLevel" && GetComponent<EndLevel>().valuable.activeSelf == false)
+        //{
+            
+
+       // }
     }
 }

@@ -14,7 +14,7 @@ public class chaseEnemy : MonoBehaviour
     [SerializeField] private AudioSource attackSound;
 
 
-    public GameObject Player;
+    public GameObject player;
     public BoxCollider2D boxCollider;
     [SerializeField] private float colliderDistance;
 
@@ -70,6 +70,10 @@ public class chaseEnemy : MonoBehaviour
 
         }
 
+        if(player.GetComponent<Health>().currentHealth < 1)
+        {
+            StopChase();
+        }
 
         Attack();
     }
@@ -79,14 +83,14 @@ public class chaseEnemy : MonoBehaviour
         if (Time.time >= nextAttack)
 
         {
-            if (Vector2.Distance(transform.position, playerTransform.position) < dist)
+            if (Vector2.Distance(transform.position, playerTransform.position) < dist && player.GetComponent<Health>().currentHealth > 0)
             {
                 //coroutine to delay attack for 1 second
                 nextAttack = Time.time + 6f / attackRate;
                 attackSound.Play();
                 animator.SetTrigger("Attack");
 
-                Player.GetComponent<Health>().TakeDamage(1);
+                player.GetComponent<Health>().TakeDamage(1);
                 
             }
 
@@ -97,7 +101,7 @@ public class chaseEnemy : MonoBehaviour
     }
 
     public void StopChase()
-    {
+    {   
         animator.SetBool("isChase", false);
         rb2d.velocity = new Vector2(0, 0);
 
