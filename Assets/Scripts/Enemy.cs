@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 
+        GetComponent<Rigidbody2D>().simulated = false;
 
         Destroy(gameObject, 1.6f);
 

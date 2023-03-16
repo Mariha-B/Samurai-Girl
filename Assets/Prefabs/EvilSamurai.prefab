@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 589620901217764882}
   - component: {fileID: 589620901217764873}
   - component: {fileID: 589620901217764875}
-  - component: {fileID: 589620901217764872}
+  - component: {fileID: 7354355680729966928}
   - component: {fileID: 589620901217764878}
   - component: {fileID: 589620901217764879}
   - component: {fileID: 589620901217764876}
@@ -118,7 +118,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36158752, y: 0.8368511}
   m_EdgeRadius: 0
---- !u!50 &589620901217764872
+--- !u!50 &7354355680729966928
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   groundDetection: {fileID: 589620901409466665}
   dist: 0.5
   attackSound: {fileID: 956419103949776192}
-  Player: {fileID: 1902618524361685659, guid: 43d25fc002ff1424bb184e586bc784a7, type: 3}
+  player: {fileID: 0}
   boxCollider: {fileID: 589620901217764875}
   colliderDistance: 0
   playerTransform: {fileID: 1902618524361685655, guid: 43d25fc002ff1424bb184e586bc784a7, type: 3}
