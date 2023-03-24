@@ -35,14 +35,15 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       //if the player is within range and is alive, enemy shoots
         if(PlayerInSight() == true && player.GetComponent<Health>().currentHealth > 0)
         {
            
             timer += Time.deltaTime;
 
             if(timer>0.7)
-            { animator.SetTrigger("RangedAttack");
+            {   //plays attack animation
+                animator.SetTrigger("RangedAttack");
                 timer = 0;
                 shoot();
             }
@@ -53,13 +54,13 @@ public class EnemyShooting : MonoBehaviour
     }
 
     void shoot()
-    {
+    {   //Plays sound and creates fireball
         shootSound.Play();
         Instantiate(fireball, fireballPos.position, Quaternion.identity);
     }
 
     private bool PlayerInSight()
-    {
+    {   //Find player within range of box set
         RaycastHit2D hit =
             Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),

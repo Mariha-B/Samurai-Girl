@@ -21,15 +21,15 @@ public class PlayerCombat : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         if(Time.time >= nextAttack)
         
-        {
+        {   //If left-click, player attacks
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {   
                 attackSound.Play();
                 Attack();
-                
+                //time till next attack
                 nextAttack = Time.time + 1f / attackRate;
             }
 

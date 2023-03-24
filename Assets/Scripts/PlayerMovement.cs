@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
        
         //Jump Function
         if (Input.GetKeyDown(KeyCode.Space) &&  grounded)
-        {
+        {   
             jumpSound.Play();
             body.velocity = new Vector2(body.velocity.x, speed);
             grounded = false;
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   //Is player grounded?
         if(collision.gameObject.tag == "Ground")
         {
             grounded = true;

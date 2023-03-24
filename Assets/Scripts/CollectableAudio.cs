@@ -13,7 +13,7 @@ public class CollectableAudio : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //If Obj with player tag collides with player, increases Score
+        //If Obj with player tag collides with player, plays sound
         if (collision.tag == "Coin")
         {
             coinSound.Play();
@@ -38,10 +38,6 @@ public class CollectableAudio : MonoBehaviour
 
         }
         
-       // if (collision.tag == "FinishLevel" && GetComponent<EndLevel>().valuable.activeSelf == false)
-        //{
-            
-
-       // }
+       
     }
 }

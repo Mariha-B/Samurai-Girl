@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
+    {   //Score takes number and converts to string
          scoreNum.text = currentScore.ToString();
     }
 

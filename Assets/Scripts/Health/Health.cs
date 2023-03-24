@@ -22,7 +22,8 @@ public class Health : MonoBehaviour
         if(currentHealth > 0)
         {
             //Player Hurt
-            
+
+            //Player Flashes
             GetComponent<SpriteFlash>().Flash();
         }
         else 
@@ -42,7 +43,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator Delay(float dur)
     {
-        //GameOver.SetActive(false);
+        //Delays GameOver screen so Death animation can play
         GetComponent<PlayerMovement>().speed = 0;
         GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(dur);

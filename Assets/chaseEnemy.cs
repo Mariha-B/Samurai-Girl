@@ -28,25 +28,26 @@ public class chaseEnemy : MonoBehaviour
     private void Awake()
     {
         startingPosition = transform.position;
-        //playerTransform = GetComponent<Transform>();
+        
         animator = GetComponent<Animator>();
         
     }
     void Start()
-    {
+    {      //Finds Rigidbody of component
         rb2d = GetComponent<Rigidbody2D>();
 
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   //Stops enemy from chasing if there is no ground
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 1f);
 
-
+        //Enemy Chases Player when within a certain chaseDistance
         if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance && groundInfo.collider == true)
-        { //Chase
+        { 
 
+            //flips enemy left and right
             if (transform.position.x > playerTransform.position.x)
             {
                 animator.SetBool("isChase", true);
@@ -56,7 +57,7 @@ public class chaseEnemy : MonoBehaviour
             }
             else if (transform.position.x < playerTransform.position.x)
             {
-                //animator.SetBool("isChase", true);
+                
                 rb2d.velocity = new Vector2(speed, 0);
                 transform.localScale = new Vector2(1, 1);
             }
@@ -69,7 +70,7 @@ public class chaseEnemy : MonoBehaviour
             StopChase();
 
         }
-
+        //if player is dead stop chasing
         if(player.GetComponent<Health>().currentHealth < 1)
         {
             StopChase();
@@ -82,7 +83,7 @@ public class chaseEnemy : MonoBehaviour
     {
         if (Time.time >= nextAttack)
 
-        {
+        {   //If distance from player is less than dist variable and the player is alive, then enemy attacks
             if (Vector2.Distance(transform.position, playerTransform.position) < dist && player.GetComponent<Health>().currentHealth > 0)
             {
                 //coroutine to delay attack for 1 second
@@ -102,6 +103,7 @@ public class chaseEnemy : MonoBehaviour
 
     public void StopChase()
     {   
+        //Enemy stops moving
         animator.SetBool("isChase", false);
         rb2d.velocity = new Vector2(0, 0);
 

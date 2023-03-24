@@ -7,21 +7,21 @@ public class MainMenu : MonoBehaviour
 {   public static bool GameIsPaused = false;
     public GameObject pauseMenu;
     public void PlayGame()
-    {
+    {   //Loads Level 1
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1 );
 
     }
 
     public void QuitGame()
     {
-
+        //Quits application
         Application.Quit();
 
     }
 
 
     private void Update()
-    {
+    {   //Esp to Pause game
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Resume()
-    {
+    {   //Disables pause menu
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
     }
     
     void Pause()
-    {
+    {   //Pause Menu and freezes time
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -56,14 +56,14 @@ public class MainMenu : MonoBehaviour
 
     }
     public void LoadMenu()
-    {
+    {   //Loads MainMenu
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
 
     }
 
     public void LoadLevel()
-    {
+    {   //Loads Level one
         Time.timeScale = 1f;
         SceneManager.LoadScene("LevelOne");
 
